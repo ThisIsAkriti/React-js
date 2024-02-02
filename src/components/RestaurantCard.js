@@ -12,7 +12,9 @@ const RestaurantCard = (props) => {
         costForTwo,
         deliveryTime
     } = resData?.info;
- /**    
+
+
+    /**    
     const[updateinfo , setUpdateinfo] = useState();
 
     useEffect(() => {
@@ -28,7 +30,41 @@ const RestaurantCard = (props) => {
    if (updateinfo === null) return <Shimer/>;
   console.log("hello world");
   */
+
+
+ /**
+     import React, { useState } from 'react';
+
+    function Example() {
+    const [data, setData] = useState({});
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch('https://example.com/api/data', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        });
+        const result = await response.json();
+        console.log(result);
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+        <input type="text" onChange={e => setData({...data, name: e.target.value})} />
+        <button type="submit">Submit</button>
+        </form>
+    );
+    }
+
+    export default Example;
+
+  */
  
+
+
     return (
         <div className="res-card">
             <img className="res-logo" alt="res-logo" 
