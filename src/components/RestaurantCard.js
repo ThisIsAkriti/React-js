@@ -4,82 +4,45 @@ import { useEffect, useState } from "react";
 
 const RestaurantCard = (props) => {
     const { resData } = props;
+    console.log(resData);
     const {
         cloudinaryImageId,
         name,
         avgRating,
         cuisines,
         costForTwo,
-        deliveryTime
+        sla:{deliveryTime}
     } = resData?.info;
 
-
-    /**    
-    const[updateinfo , setUpdateinfo] = useState();
-
-    useEffect(() => {
-       fetchUpdate();
-
-    }, [])
-    const fetchUpdate = async () => {
-       const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/update")
-       const json = data.json;
-      
-       setUpdateinfo(json.data);
-    };
-   if (updateinfo === null) return <Shimer/>;
-  console.log("hello world");
-  */
-
-
- /**
-     import React, { useState } from 'react';
-
-    function Example() {
-    const [data, setData] = useState({});
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await fetch('https://example.com/api/data', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-        });
-        const result = await response.json();
-        console.log(result);
-    }
-
+  
     return (
-        <form onSubmit={handleSubmit}>
-        <input type="text" onChange={e => setData({...data, name: e.target.value})} />
-        <button type="submit">Submit</button>
-        </form>
-    );
-    }
-
-    export default Example;
-
-  */
- 
-
-
-    return (
-        <div className="res-card">
+        <div
+         data-testid = "resCard"
+         className="m-4 p-4 w-[200px] bg-gray-200 rounded-lg hover:shadow-xl">
             <img className="res-logo" alt="res-logo" 
             src = {
                 CDN_URL + cloudinaryImageId
             } 
             />
-            <h3>{name}</h3>
-            <h4>{cuisines.join(",")}</h4>
+            <h3 className="font-bold py-4 text-lg">{name}</h3>
+            <h4 className="cusines-name">{cuisines.join(" , ")}</h4>
             <h4>{avgRating} stars</h4>
             <h4>{costForTwo} </h4>
             <h4>{deliveryTime} minutes</h4>
             
         </div>
-    );
-};
+    ); 
+}
+    export const withPromotedLabel = (RestaurantCard) => {
+        return (props) => {
+            return (
+                <div>
+                    <label className = "absolute bg-black text-white ml-4 p-2 rounded-lg" >Promoted</label>
+                    <RestaurantCard {...props} />
+                </div>
+            );
+        };
+    };
+
 
 export default RestaurantCard;

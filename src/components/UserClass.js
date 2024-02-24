@@ -7,7 +7,7 @@ class UserClass extends React.Component{
         this.state = {
             userInfo: {
                 name:"Dummy",
-                location:"Default",
+                location:"heart",
                 avatar_url: "http://dummyphoto.com"
             }
         }
@@ -34,8 +34,6 @@ class UserClass extends React.Component{
     }
 
     render(){
-        
-
        // console.log("child-render!")
 
        const {name , location, avatar_url} = this.state.userInfo;
