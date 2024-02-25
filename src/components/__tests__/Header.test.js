@@ -48,3 +48,16 @@ it("should change login button to logOut on click" , ()=> {
 
     expect(logOutButton).toBeInTheDocument();
 }) ;
+
+it("should render contact page!" , () => {
+    render(
+        <BrowserRouter>
+           <Provider store={appStore}>
+               <Header/>
+           </Provider>
+        </BrowserRouter>
+    );
+    const contactPage = screen.getByText("Contact Us");
+    expect(contactPage).toBeInTheDocument();
+    
+})

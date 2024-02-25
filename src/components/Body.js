@@ -25,6 +25,7 @@ const Body = () => {
     );
   
     const json = await data.json();
+    console.log(json);
 
     //optional chaining
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -96,10 +97,11 @@ const Body = () => {
           key={restaurant.info.id}
           to={"/resturants/" + restaurant.info.id}
           >
-          {restaurant.info.type?
+          {restaurant.info.veg?    // veg cards are promoted 
+            (<RestaurantCardPromoted resData = {restaurant}/>)
+            :
           (< RestaurantCard resData = {restaurant} />)
-          :
-          (<RestaurantCardPromoted resData = {restaurant}/>)
+          
           }
           </Link>
           ))
