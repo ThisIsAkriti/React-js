@@ -25,7 +25,6 @@ const Body = () => {
     );
   
     const json = await data.json();
-    console.log(json);
 
     //optional chaining
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -40,7 +39,6 @@ const Body = () => {
     );
   
   const { loggedInUser , setUserName } = useContext(UserContext);
-  
 
   return ListOfRestaurants.length === 0 ? <Shimer />
    : 

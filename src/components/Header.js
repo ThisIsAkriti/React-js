@@ -26,29 +26,29 @@ const Header = () => {
         </div>
         <div className="flex items-center ">
           <ul className="flex p-4 m-4">
-            <li className="px-4">Online Status : {onlineStatus? "✔️": "🔴"}</li> 
-            <li  className="px-4">
+            <li className="px-4 text-lg  mt-2 mb-6 font-serif ">Online Status : {onlineStatus? "✔️": "🔴"}</li> 
+            <li  className="px-4 text-lg  mt-2 mb-6 font-serif ">
               <Link to = "/" >Home</Link> 
             </li>
-            <li className="px-4">
+            <li className="px-4 text-lg mt-2 mb-6 font-serif ">
               <Link to = "/About" >About Us</Link>  
             </li>
-            <li className="px-4">
+            <li className="px-4 text-lg  mt-2 mb-6 font-serif ">
               <Link to = "/Contact" >Contact Us</Link>
             </li>
-            <li className="px-4">
+            <li className="px-4 text-lg mt-2 mb-6 font-serif ">
               <Link to = "/Grocery" >Grocery</Link>
             </li>
-            <li className="px-4 font-bold">
+            <li className="px-4  text-lg mt-2 mb-6 font-serif  ">
             <Link to = "/cart" >Cart - ({cartItems.length} items)</Link>
             </li>
-            <div className="login-btn cursor-pointer" onClick={() => {
+            <div className="login-btn cursor-pointer px-4 text-lg mt-2 mb-6 font-serif" onClick={() => {
               btnNameReact === "LogIn" ?
               setbtnNameReact("LogOut"):
               setbtnNameReact("LogIn") 
               
             }}>{btnNameReact}</div>
-            <li className="px-4 font-bold">{loggedInUser}</li>
+            <li className="px-4   text-lg font-bold mt-2 mb-6 font-serif">{loggedInUser}</li>
           </ul>
         </div>
 
