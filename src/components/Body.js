@@ -4,7 +4,7 @@ import Shimer from "./Shimer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
-
+import InfiniteScroll from "./infiniteScroll";
 
 const Body = () => {
   
@@ -25,6 +25,7 @@ const Body = () => {
     );
   
     const json = await data.json();
+    console.log(json);
 
     //optional chaining
     setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -39,6 +40,49 @@ const Body = () => {
     );
   
   const { loggedInUser , setUserName } = useContext(UserContext);
+
+
+/*
+  const [card, setCard] = useState([]);
+    const [page, setpage] = useState(1);
+
+    const getInfiniteCards = async() => {
+        const res = await fetch(
+            `https://www.swiggy.com/dapi/restaurants/list/update/`
+        );
+
+        const data = await res.json();
+        setCard((prev) =>[...prev, ...data]);
+    }
+
+    useEffect(() => {
+        getInfiniteCards()
+    } , [page]);
+
+    const infiniteScroll = async () => {
+      console.log("scrollHeight" + document.documentElement.scrollHeight);
+      console.log("innerHeight" + window.innerHeight);
+      console.log("scrollTop" + document.documentElement.scrollTop); 
+      
+      try{
+          if(window.innerHeight +  document.documentElement.scrollHeight  + 1 >= document.documentElement.scrollTop)
+          {
+            setpage((prev) => prev + 1);
+          }
+      }
+      catch(error) {
+          console.log(error);
+      }
+    }
+
+
+  useEffect(() => {
+    window.addEventListener("Scroll" , infiniteScroll())
+  } , []);
+
+*/
+  
+
 
   return ListOfRestaurants.length === 0 ? <Shimer />
    : 
@@ -105,6 +149,7 @@ const Body = () => {
           ))
         }
       </div>
+      
     </div>
   );
 }; 

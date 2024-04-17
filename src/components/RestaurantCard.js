@@ -12,7 +12,7 @@ const RestaurantCard = (props) => {
         costForTwo,
         sla:{deliveryTime}
     } = resData?.info;
-
+    
   
     return (
         <div
@@ -31,14 +31,18 @@ const RestaurantCard = (props) => {
             
         </div>
     ); 
+
 }
+
 
 export const withPromotedLabel = (RestaurantCard) => {
     return (props) => {
-        console.log(props);
+        
         return (
             <div>
-                <label className = "absolute bg-black text-white ml-4 p-2 rounded-lg" >Promoted</label>
+                <label className = "absolute bg-black text-white ml-4 p-2 rounded-lg" >
+                    Promoted
+                </label>
                 <RestaurantCard {...props} />
             </div>
         );

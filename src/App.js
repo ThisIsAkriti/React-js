@@ -12,6 +12,7 @@ import UserContext from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
 import Cart from "./components/Cart.js";
+import Guest from "./components/Guest.js";
 
 
 // chunking , code splitting , dynamic bundeling , lazy loading , on demand loading;
@@ -60,6 +61,11 @@ const appRouter = createBrowserRouter([
             path: "/contact",
             element: < Contact />,
         },
+        {
+            path: "/Guest",
+            element: < Guest />,
+        },
+
         {
             path: "/grocery",
             element: <Suspense fallback = "Loading..."><Grocery /></Suspense> ,
