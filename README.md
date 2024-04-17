@@ -41,4 +41,11 @@
    - Jest -npx jest--init
    - Install js-Dom-library
    - Install @testing-library/jest-dom
+
+  ## To run the project:
+    - npm run start 
+    - install CORS plugin to avoid data fetch failed in restaurant menu 
+    ## Cors plugin
+    - this extension can be easily dwnlded from google.
+     
    ### Okie Dokie food app
