@@ -6,11 +6,7 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useState } from "react";
 
 const RestaurantMenu = () => {
-    /*
-    const[resInfo , setResInfo] = useState(null);
-    const { resId } = useParams();
-    */
-    
+   
     const { resId } = useParams();
 
     const dummy = "dummy data";
@@ -34,14 +30,14 @@ const RestaurantMenu = () => {
 
     if (resInfo === null) return <Shimer/>;
     
-   const {name, cuisines, costForTwoMessage} = resInfo?.data?.cards[0]?.card?.card?.info;
+   const {name, cuisines, costForTwoMessage} = resInfo?.data?.cards[2]?.card?.card?.info;
   
    
-   const {itemCards} = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+   const {itemCards} = resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   
             
 
-   const categories = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+   const categories = resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
     c => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
   
 
