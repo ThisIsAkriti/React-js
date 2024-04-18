@@ -12,7 +12,7 @@ const RestaurantMenu = () => {
     const dummy = "dummy data";
 
     const resInfo = useRestaurantMenu(resId);
-    console.log(resInfo);
+    
     
     /*
     useEffect(() => {
